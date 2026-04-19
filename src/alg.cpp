@@ -48,7 +48,7 @@ std::string infx2pstfx(const std::string& inf) {
   }
   return finalInf;
 }
-int eval(const std::string& pref) {
+int eval(const std::string& post) {
   TStack<int, 100> stack;
   for (size_t i = 0; i < post.length(); i++) {
     char cur = post[i];
