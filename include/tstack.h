@@ -4,21 +4,24 @@
 
 template<typename T, int size>
 class TStack {
-  private:
-	T data[size];
-	int top;
-public:
-	TStack() : top(-1) {}
-	void push(T value) { if (top < size - 1) data[++top] = value; }
-	T pop() {
-    if (!isEmpty()) { return data[top--]; }
-		return T();
-	}
-	bool isEmpty() { return top == -1; }
-	T getTop() {
-		if (!isEmpty()) return data[top];
-		return T();
-	}
+ private:
+    static const int kSize = size;
+    T data[kSize];
+    int top;
+ public:
+    TStack() : top(-1) {}
+    void push(T value) { if (top < kSize - 1) data[++top] = value; }
+    T pop() {
+    if (!isEmpty()) {
+      return data[top--];
+    }
+      return T();
+    }
+    bool isEmpty() { return top == -1; }
+    T getTop() {
+      if (!isEmpty()) return data[top];
+      return T();
+    }
 };
 
 #endif  // INCLUDE_TSTACK_H_
