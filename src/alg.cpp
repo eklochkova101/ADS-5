@@ -21,8 +21,8 @@ std::string infx2pstfx(const std::string& inf) {
       }
       finalInf += ' ';
       i--;
-    } else if {
-      (cur == '(') stack.push(cur);
+    } else if (cur == '(') {
+      stack.push(cur);
     } else if (cur == ')') {
       while (!stack.isEmpty() && stack.getTop() != '(') {
         finalInf += stack.pop();
@@ -61,8 +61,7 @@ int eval(const std::string& post) {
       }
       stack.push(digit);
       i--;
-    }
-    else if (cur == '+' || cur == '*' || cur == '-' || cur == '/') {
+    } else if (cur == '+' || cur == '*' || cur == '-' || cur == '/') {
       int second = stack.pop();
       int first = stack.pop();
       int finalPost = 0;
