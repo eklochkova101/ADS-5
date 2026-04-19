@@ -1,10 +1,9 @@
-// Copyright 2025 NNTU-CS
+// Copyright 2026 NNTU-CS
+#include <cctype>
+#include <cstdint>
 #include <string>
 #include <map>
 #include "tstack.h"
-#include <cctype>
-#include <cstdint>
-
 uint8_t prioritet(char ch) {
   if (ch == '*' || ch == '/') return 2;
   if (ch == '+' || ch == '-') return 1;
@@ -22,16 +21,15 @@ std::string infx2pstfx(const std::string& inf) {
       }
       finalInf += ' ';
       i--;
-    }
-    else if (cur == '(') stack.push(cur);
-    else if (cur == ')') {
+    } else if {
+      (cur == '(') stack.push(cur);
+    } else if (cur == ')') {
       while (!stack.isEmpty() && stack.getTop() != '(') {
         finalInf += stack.pop();
           finalInf += ' ';
       }
       stack.pop();
-    }
-    else if (cur == '+' || cur == '*' || cur == '-' || cur == '/') {
+    } else if (cur == '+' || cur == '*' || cur == '-' || cur == '/') {
       while (!stack.isEmpty() && prioritet(stack.getTop()) >= prioritet(cur)) {
         finalInf += stack.pop();
         finalInf += ' ';
